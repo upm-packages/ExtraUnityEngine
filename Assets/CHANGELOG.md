@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.1-preview.3] - 2019-09-05
+
+* Change namespace
+
+### Changes
+
+* Change namespace to `ExtraUnityEngine` instead of `ExtraUnity`
+
 ## [0.0.1-preview.2] - 2019-09-05
 
 * Add extension methods

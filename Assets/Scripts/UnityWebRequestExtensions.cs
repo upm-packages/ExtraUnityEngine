@@ -4,7 +4,7 @@ using System.Text;
 using JetBrains.Annotations;
 using UnityEngine.Networking;
 
-namespace ExtraUnity
+namespace ExtraUnityEngine
 {
     [PublicAPI]
     public static class UnityWebRequestExtensions
