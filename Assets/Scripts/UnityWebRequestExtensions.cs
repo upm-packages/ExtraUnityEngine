@@ -30,6 +30,12 @@ namespace ExtraUnity
             return self;
         }
 
+        public static UnityWebRequest ApplyRequestHeader(this UnityWebRequest self, string name, string value)
+        {
+            self.SetRequestHeader(name, value);
+            return self;
+        }
+
         public static UnityWebRequest ApplyRequestHeaders(this UnityWebRequest self, IDictionary<string, string> requestHeaders)
         {
             if (requestHeaders == default || !requestHeaders.Any())
