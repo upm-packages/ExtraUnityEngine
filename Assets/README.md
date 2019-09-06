@@ -12,6 +12,22 @@ upm add package dev.upm-packages.extraunityengine
 
 ### `UnityWebRequest`
 
+#### `ApplyDownloadHandler`
+
+```csharp
+public static UnityWebRequest ApplyDownloadHandler(this UnityWebRequest self, DownloadHandler downloadHandler) {}
+```
+
+Set DownloadHandler instance to UnityWebRequest instance via `downloadHandler` property.
+
+#### `ApplyUploadHandler`
+
+```csharp
+public static UnityWebRequest ApplyUploadHandler(this UnityWebRequest self, UploadHandler uploadHandler) {}
+```
+
+Set DownloadHandler instance to UnityWebRequest instance via `downloadHandler` property.
+
 #### `ApplyRequestBody`
 
 ```csharp
