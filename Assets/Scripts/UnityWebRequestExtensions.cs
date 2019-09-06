@@ -9,25 +9,39 @@ namespace ExtraUnityEngine
     [PublicAPI]
     public static class UnityWebRequestExtensions
     {
+        public static UnityWebRequest ApplyDownloadHandler(this UnityWebRequest self, DownloadHandler downloadHandler)
+        {
+            if (downloadHandler != default)
+            {
+                self.downloadHandler = downloadHandler;
+            }
+
+            return self;
+        }
+
+        public static UnityWebRequest ApplyUploadHandler(this UnityWebRequest self, UploadHandler uploadHandler)
+        {
+            if (uploadHandler != default)
+            {
+                self.uploadHandler = uploadHandler;
+            }
+
+            return self;
+        }
+
         public static UnityWebRequest ApplyRequestBody(this UnityWebRequest self, string requestBody)
         {
-            return self.ApplyRequestBody(Encoding.UTF8.GetBytes(requestBody));
+            return string.IsNullOrEmpty(requestBody) ? self : self.ApplyRequestBody(Encoding.UTF8.GetBytes(requestBody));
         }
 
         public static UnityWebRequest ApplyRequestBody(this UnityWebRequest self, IEnumerable<byte> requestBody)
         {
-            return self.ApplyRequestBody(requestBody.ToArray());
+            return requestBody == null ? self : self.ApplyRequestBody(requestBody.ToArray());
         }
 
         public static UnityWebRequest ApplyRequestBody(this UnityWebRequest self, byte[] requestBody)
         {
-            if (requestBody == default)
-            {
-                return self;
-            }
-
-            self.uploadHandler = new UploadHandlerRaw(requestBody);
-            return self;
+            return requestBody == default ? self : self.ApplyUploadHandler(new UploadHandlerRaw(requestBody));
         }
 
         public static UnityWebRequest ApplyRequestHeader(this UnityWebRequest self, string name, string value)

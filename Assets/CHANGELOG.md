@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.0.1-preview.4] - 2019-09-06
+
+* Add extension methods
+
+### Improves
+
+* Add extension methods to UnityWebRequestExtensions
+    * Add `ApplyDownloadHandler` method
+    * Add `ApplyUploadHandler` method
+
 ## [0.0.1-preview.3] - 2019-09-05
 
 * Change namespace
